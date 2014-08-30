@@ -11,15 +11,17 @@
 
 </div>
 <script id="test-template" type="text/x-handlebars-template">
-    <ul>
+    <ul>{{#numbers}}
         <li>{{number}}</li>
+        {{/numbers}}
     </ul>
 </script>
 <script>
     var source   = $("#test-template").html();
     var template = Handlebars.compile(source);
-    var context = {title: "My New Post", body: "This is my first post!"}
+    var context = {"numbers": [{"number":"1"},{"number":"2"},{"number":"3"}]}
     var html    = template(context);
+    $("#main-container").html(html)
 </script>
 </body>
 </html>
